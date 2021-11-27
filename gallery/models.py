@@ -5,11 +5,13 @@ from cloudinary.models import CloudinaryField
 # Create your models here.
 
 class category(models.Model):
-    category=models.CharField(max_length=30)
+    name=models.CharField(max_length=30)
     
     
     def __str__(self):
-        return self.category
+        return self.name
+
+
 
 
 class Image(models.Model):
@@ -21,7 +23,18 @@ class Image(models.Model):
     pub_date = models.DateTimeField(auto_now_add=True,null=True)
 
     @classmethod
-    def search_by_title(cls,search_term):
-        gallery = cls.objects.filter(title__icontains=search_term)
+    def search_by_category(cls,search_term):
+        gallery = cls.objects.filter(category__name__icontains=search_term)
         return gallery
     
+    def save_image(self):
+        self.save()
+
+    def delete_image(self):
+        self.delete()
+
+    def update_image(self,title, description):
+        self.title = title
+        self.description = description
+        self.category = category
+        self.save()
