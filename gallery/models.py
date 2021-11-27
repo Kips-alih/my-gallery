@@ -11,7 +11,11 @@ class category(models.Model):
     def __str__(self):
         return self.name
 
-
+class Location(models.Model):
+    name=models.CharField(max_length=30)
+     
+    def __str__(self):
+        return self.name
 
 
 class Image(models.Model):
@@ -20,6 +24,7 @@ class Image(models.Model):
     #image field
     image = CloudinaryField('image')
     category = models.ForeignKey(category, on_delete=models.CASCADE,null=True)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE,null=True)
     pub_date = models.DateTimeField(auto_now_add=True,null=True)
 
     @classmethod
