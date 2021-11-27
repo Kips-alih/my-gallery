@@ -8,3 +8,8 @@ class Image(models.Model):
     description= models.TextField()
     #image field
     image = CloudinaryField('image')
+
+    @classmethod
+    def search_by_title(cls,search_term):
+        gallery = cls.objects.filter(title__icontains=search_term)
+        return gallery
