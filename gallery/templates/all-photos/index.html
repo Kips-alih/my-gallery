@@ -2,4 +2,17 @@
 
 {% block content %}
 {{block.super}}
+<div class="container text-center">
+  <div class="row ">
+      <!-- loop through all the images -->
+    {% for pic in photo %}
+    <div class="col-md-4">
+      <h2>{{pic.title}}</h2>
+      <a href="{% url 'photo' pic.id %} "><img src="{{pic.image.url}}" class="img-responsive" alt="Image"></a>
+        
+    </div>
+    {% endfor %}
+  </div>
+</div>
+            
 {% endblock %}
