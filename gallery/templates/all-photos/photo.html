@@ -5,20 +5,19 @@
  <div class="container">
 
    <div class="row">
-     <img src="{{image.image.url}}"  class="img-responsive" alt="image">
+     <div class="col-md-8">
+      <h1 class="text-center">{{image.title}}</h1>
+      <img src="{{image.image.url}}"  class="img-responsive" alt="image">
+     </div>
+   </div>
+   <div class="row">
+     <p><strong>Description: </strong>{{image.description}}</p>
    </div>
 
    <div class="row">
-     <h1 class="text-center">{{image.title}}</h1>
+    <p><strong>Location:</strong>{{image.location}}</p>
+    <p><strong>Posted</strong> {{image.pub_date|timesince}}</p>
    </div>
-
-   <div class="row">
-     <p>{{image.description}}</p>
-   </div>
-
-   <!-- <div class="row">
-     <p>Posted {{article.pub_date|timesince}} by {{article.editor.first_name}}</p>
-   </div> -->
 
  </div>
 

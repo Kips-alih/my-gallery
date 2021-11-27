@@ -7,9 +7,9 @@
       <!-- loop through all the images -->
     {% for pic in photo %}
     <div class="col-md-4">
-      <h2>{{pic.title}}</h2>
+      <!-- <h2>{{pic.title}}</h2> -->
       <a href="{% url 'photo' pic.id %} "><img src="{{pic.image.url}}" class="img-responsive" alt="Image"></a>
-        
+      <p>Image Category: <strong>{{pic.category}}</strong></p>
     </div>
     {% endfor %}
   </div>
