@@ -12,8 +12,8 @@ Personal gallery application
 
 * Open your terminal
 * Create a folder and navigate to the folder you created.
-* Run `git clone https://github.com/Kips-alih/.git`
-* Run `cd` command to confirm it was successfully cloned.
+* Run `git clone https://github.com/Kips-alih/my-gallery.git`
+* Run `cd my-gallery` command to confirm it was successfully cloned.
 
 ## User Stories
 
