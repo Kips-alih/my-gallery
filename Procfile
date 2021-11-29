@@ -1,0 +1,1 @@
+web: gunicorn photolib.wsgi --log-file -
