@@ -27,4 +27,18 @@ class ImageTestClass(TestCase):
         Image.objects.all().delete()
         category.objects.all().delete()
 
+#Category test cases
+class categoryTestCase(TestCase):
+
+    def setUp(self):
+        category.objects.create(name="Category_test")
+
+    def test_category_name(self):
+        Category = category.objects.get(name="Category_test")
+        self.assertEqual(Category.name, "Category_test")
+
+    def test_category_str(self):
+        Category = category.objects.get(name="Category_test")
+        self.assertEqual(str(Category), "Category_test")
+
     
