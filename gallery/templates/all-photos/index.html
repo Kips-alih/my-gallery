@@ -4,12 +4,36 @@
 {{block.super}}
 <div class="container text-center">
   <div class="row ">
-      <!-- loop through all the images -->
     {% for pic in photo %}
-    <div class="col-md-4">
-      <!-- <h2>{{pic.title}}</h2> -->
-      <a href="{% url 'photo' pic.id %} "><img src="{{pic.image.url}}" class="img-responsive" alt="Image"></a>
+    <div class = "col-md-6" data-toggle ="modal" data-target="#showPicModal{{pic.id}}">
+      <img src="{{pic.image.url}}" alt="Image" class="img-responsive">
+      <!-- <a href=""><img src="{{pic.image.url}}" class="img-responsive" alt="Image"></a> -->
       <p>Image Category: <strong>{{pic.category}}</strong></p>
+    </div>
+
+    <div class="modal fade" id="showPicModal{{pic.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">{{pic.name}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img src="{{pic.image.url}}" class = "img-responsive"alt="{{pic.name}}">
+            <p><strong>Description: </strong>{{pic.description}}</p>
+            <div class="col-md-4">
+              <p><strong>Category:</strong> {{pic.category}}</p>
+              <p><strong>Image Location:</strong>{{pic.location}}</p>
+              <p><strong>Published:</strong>{{pic.pub_date|timesince}}</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <p><input class="form-control" type="text" value="{{pic.image.url}}" id="{{pic.id}}.url"><strong>Image Link</strong></p>
+          </div>
+        </div>
+      </div>
     </div>
     {% endfor %}
   </div>
