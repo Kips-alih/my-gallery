@@ -32,6 +32,10 @@ class Image(models.Model):
         gallery = cls.objects.filter(category__name__icontains=search_term)
         return gallery
     
+    @classmethod
+    def filter_by_location(cls,search_location):
+        gallery = cls.objects.filter(location__name__icontains=search_location).all()
+        return gallery
     def save_image(self):
         self.save()
 
